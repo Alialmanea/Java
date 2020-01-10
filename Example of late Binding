@@ -1,0 +1,46 @@
+ package oop;
+
+
+class Animal{
+String name ="Animal";
+void move(){
+    System.out.println("Animal is Moving ");
+}
+}
+
+class Cat extends Animal {
+String name="cat";
+void move(){
+    System.out.println("Cat is Moving ");
+}
+}
+
+class SonofCat extends Cat{
+
+void eat(){
+ System.out.println("SonCat is eating ");
+}
+void move(){
+    System.out.println("Soncat is Moving ");
+}
+}
+
+
+
+public class OOp {
+
+    public static void main(String[] args) {
+        
+        Animal Unkown_animal=new SonofCat();
+        System.out.println(Unkown_animal.name);
+        
+         //Unkown_animal.eat();   //Error
+         if(Unkown_animal instanceof SonofCat ){
+  
+         ((SonofCat) Unkown_animal).eat();
+         }
+               
+        Unkown_animal.move();
+        
+        
+    }
