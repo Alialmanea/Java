@@ -1,36 +1,53 @@
-package freqof;
+package Frequency;
 
 import java.util.HashMap;
 
+class Frequency{
 
-public class Factorial {
-
-    
-    static HashMap <Character,Integer> map = new HashMap<Character, Integer>();
-    
-    private static void countfreq(char[]arr,int n){
-        for(int i=0;i<n;i++){
-            if(map.containsKey(arr[i]))
-                map.put(arr[i],map.get(arr[i])+1);
+private static HashMap <Character,Integer> map = new HashMap<Character, Integer>();
+  private char[] a;  
+Frequency(String str,int n){
+    a=new char[n];
+a=str.toCharArray();
+}
+Frequency(String str){
+    a=new char[str.length()];
+a=str.toCharArray();
+}
+      void countfreq(){
+        for(int i=0;i<a.length;i++){
+            if(map.containsKey(a[i]))
+                map.put(a[i],map.get(a[i])+1);
             else
-                map.put(arr[i],1);
+                map.put(a[i],1);
              }   
     }
-      static int freqof(char x){
+       int freqof(char x){
         
         if(map.containsKey(x))
             return map.get(x);
         else
             return 0;
       }
+       void print (){
+      for(Character key : map.keySet()){
+      System.out.println("The element of "+key+" is : "+map.get(key));
+      }
+      
+      } 
 
+}
+
+
+public class Homework {
+
+  
     public static void main(String[] args) {
         String word="aalabalba";
-        char[] a=new char[word.length()];
-        a=word.toCharArray();
-        countfreq(a,a.length);
-        System.out.println("The freq of a is "+freqof('a'));
-        
+        Frequency frq=new Frequency(word);
+        frq.countfreq();
+        System.out.println("The Frequency of Element a is: "+frq.freqof('a'));
+        frq.print();
         
     }
     
